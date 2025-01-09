@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myBSU revival - Bringing Back The Old my.bsu.edu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .banner {
+            position: relative;
+            background-image: url('banner-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 66vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .banner h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+        .banner h1 span {
+            font-size: 0.5em;
+            font-weight: 300;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .buttons {
+            background-color: #fff;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+        .buttons button {
+            background-color: #CC0000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        .buttons button:hover {
+            background-color: #990000;
+        }
+        @media (max-width: 768px) {
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .buttons button {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+        .announcement {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .announcement h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .announcement p {
+            font-size: 1em;
+            color: #555;
+        }
+        .announcement p a {
+            color: #CC0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .announcement p a:hover {
+            text-decoration: underline;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .service h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #CC0000;
+        }
+        .service h3 a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .service h3 a:hover {
+            text-decoration: underline;
+        }
+        .service p {
+            font-size: 0.9em;
+            color: #555;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #CC0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>
+            myBSU
+            <span>revival</span>
+        </h1>
+    </div>
+    <div class="buttons">
+        <a href="https://banner.bsu.edu/BannerExtensibility/customPage/page/pbadm.ssoauth?url=/customPage/page/bsu_ss9"><button>Self-service banner</button></a>
+        <a href="https://outlook.office.com/mail/"><button>Outlook webmail</button></a>
+        <a href="https://bsu.instructure.com"><button>Canvas</button></a>
+        <a href="https://bsu.navigate.eab.com/app/#/"><button>Navigate</button></a>
+        <a href="https://bsu.edu/cardinalcentral"><button>Cardinal central</button></a>
+    </div>
+    <div class="services">
+        <div class="service">
+            <h3><a href="https://www.ballstatehousing.com/housing">BallStateHousing.com</a></h3>
+            <p>Ready to move out the dorms? Curated by The Daily</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://bsu.instructure.com">Canvas</a></h3>
+            <p>Access your assignments and grades</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://bsu.instructure.com">Cardinal Central</a></h3>
+            <p>Supporting the business of being a student</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://banner.bsu.edu/ssomanager/c/SSB?pkg=cashnet_sso.p_cashnet_login">eBill</a></h3>
+            <p>View and pay your eBill</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://studentaid.gov">FASFA</a></h3>
+            <p>Do this every year for your scholarships, grants, and loans!</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://banner.bsu.edu/StudentSelfService/ssb/financialAid#!/dashboard/home/">Financial Aid</a></h3>
+            <p>Access your scholarships, grants, and loans</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://get.cbord.com/bsu/full/login.php">GET</a></h3>
+            <p>Meal and plus? :(</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://bsu.navigate.eab.com/app/#/">Navigate</a></h3>
+            <p>Schedule appointments, find study buddies, and see that schedule</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://outlook.office.com/mail/">Outlook Webmail</a></h3>
+            <p>Access that @bsu.edu email</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://banner.bsu.edu/BannerExtensibility/customPage/page/pbadm.ssoauth?url=/customPage/page/bsu_ss9">Self-Service Banner</a></h3>
+            <p>Your schedule, grades, transcript, direct deposit, University employment...a lot of things</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://bsu.starrezhousing.com/StarRezPortalX/">StarRez</a></h3>
+            <p>For resident contracts, room repairs, and requesting an exemption</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://www.ballstatedaily.com/">The Daily</a></h3>
+            <p>News, by students, for students</p>
+        </div>
+    </div>
+    <hr>
+    <div class="services">
+        <div class="service">
+            <h3><a href="https://github.com/satara765/mybsu-revival">View Our Source Code</a></h3>
+            <p>No goofy shit here! We're 100% open-source, take a look!</p>
+        </div>
+        <div class="service">
+            <h3><a href="https://myballstate.bsu.edu">Switch to MyBallState</a></h3>
+            <p>You're leaving myBSU revival to go to MyBallState :(</p>
+        </div>
+    </div>
+    <footer>
+        myBSU revival &copy; satara765. some rights reserved. not sponsored/endorsed by the uni. <small><a href="https://liberapay.com/satara765">leave a tip for tippy?</a></small>
+    </footer>
+    <script>
+        window.onload = function() {
+        document.querySelectorAll('a').forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    };
+        // goofy shit here: https://en.wikipedia.org/wiki/A_Goofy_Movie
+    </script>
+</body>
+</html>
