@@ -1,4 +1,4 @@
-# 🎓 mybsu-revival  
+# 🎓 mybsu-revival - [myBSU.groups.id](https://mybsu.groups.id)
 
 ## 🚨 Disclaimer  
 *Just so we’re clear: This project is not sponsored or endorsed by Ball State University.*  
@@ -35,6 +35,12 @@ This project is open-source and licensed under the **Apache License 2.0**. That 
 Got ideas? Want to help bring the old **my.bsu.edu** back to life?  
 🚀 Let’s work together and make this a project we can all enjoy!  
 
+---
+
+### Project Credits
+- **satara765** - Developer
+- **[FreeDNS](https://freedns.afraid.org/)** - Access to the `myBSU.groups.id` subdomain
+- **Users like you** - Feedback and suggestions
 ---
 
 **© 2025 by a fellow Cardinal, satara765 🐦**  
