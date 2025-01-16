@@ -244,8 +244,9 @@
     };
         // goofy shit here: https://en.wikipedia.org/wiki/A_Goofy_Movie
     </script>
-    
     <script>
+        let deferredPrompt;
+    
         // For PWA: Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -259,13 +260,12 @@
             });
         }
     
-        let deferredPrompt;
-    
-        // Show the Install Banner when beforeinstallprompt is fired
+        // Listen for the 'beforeinstallprompt' event
         window.addEventListener('beforeinstallprompt', (event) => {
-            event.preventDefault();
-            deferredPrompt = event;
+            event.preventDefault(); // Prevent automatic prompt
+            deferredPrompt = event; // Save the event for later use
     
+            // Create the install banner
             const installBanner = document.createElement('div');
             installBanner.textContent = 'Install myBSU Revival on your device!';
             installBanner.style.position = 'fixed';
@@ -280,18 +280,23 @@
             installBanner.style.textAlign = 'center';
             installBanner.style.cursor = 'pointer';
             installBanner.style.zIndex = '1000';
+            installBanner.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
             document.body.appendChild(installBanner);
     
+            // Handle install button click
             installBanner.addEventListener('click', () => {
+                // Show the install prompt
                 deferredPrompt.prompt();
+    
+                // Wait for the user's response
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('User accepted the A2HS prompt');
                     } else {
                         console.log('User dismissed the A2HS prompt');
                     }
-                    deferredPrompt = null;
-                    installBanner.style.display = 'none'; // Hide the banner after the prompt
+                    deferredPrompt = null; // Reset the prompt after it's used
+                    installBanner.style.display = 'none'; // Hide the banner after use
                 });
             });
         });
@@ -312,6 +317,7 @@
             installMessage.style.textAlign = 'center';
             installMessage.style.cursor = 'pointer';
             installMessage.style.zIndex = '1000';
+            installMessage.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
             document.body.appendChild(installMessage);
         }
     </script>
