@@ -245,31 +245,16 @@
         // goofy shit here: https://en.wikipedia.org/wiki/A_Goofy_Movie
     </script>
     <script>
-        let deferredPrompt;
+        // Check if the user is on iOS and not using the PWA
+        const isIOS = /iphone|ipod|ipad/i.test(navigator.userAgent);
+        const isPWA = window.matchMedia('(display-mode: standalone)').matches;
     
-        // For PWA: Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then((registration) => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('Service Worker registration failed:', error);
-                    });
-            });
-        }
-    
-        // Listen for the 'beforeinstallprompt' event
-        window.addEventListener('beforeinstallprompt', (event) => {
-            event.preventDefault(); // Prevent automatic prompt
-            deferredPrompt = event; // Save the event for later use
-    
+        if (isIOS && !isPWA) {
             // Create the install banner
             const installBanner = document.createElement('div');
-            installBanner.textContent = 'Install myBSU Revival on your device!';
+            installBanner.textContent = '⬇️Get myBSU revival on your iPhone!';
             installBanner.style.position = 'fixed';
-            installBanner.style.bottom = '20px';
+            installBanner.style.top = '0';
             installBanner.style.left = '50%';
             installBanner.style.transform = 'translateX(-50%)';
             installBanner.style.backgroundColor = '#9E1B32';
@@ -283,42 +268,10 @@
             installBanner.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
             document.body.appendChild(installBanner);
     
-            // Handle install button click
+            // Handle install banner click
             installBanner.addEventListener('click', () => {
-                // Show the install prompt
-                deferredPrompt.prompt();
-    
-                // Wait for the user's response
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the A2HS prompt');
-                    } else {
-                        console.log('User dismissed the A2HS prompt');
-                    }
-                    deferredPrompt = null; // Reset the prompt after it's used
-                    installBanner.style.display = 'none'; // Hide the banner after use
-                });
+                alert('To install, in Safari, tap the Share button (the middle button under the URL), then select "Add to Home Screen."');
             });
-        });
-    
-        // If the app is not installed as a PWA (standalone mode), show install message
-        if (window.navigator.standalone === false) {
-            const installMessage = document.createElement('div');
-            installMessage.textContent = 'Install myBSU Revival on your device!';
-            installMessage.style.position = 'fixed';
-            installMessage.style.bottom = '20px';
-            installMessage.style.left = '50%';
-            installMessage.style.transform = 'translateX(-50%)';
-            installMessage.style.backgroundColor = '#9E1B32';
-            installMessage.style.color = 'white';
-            installMessage.style.padding = '15px 30px';
-            installMessage.style.borderRadius = '5px';
-            installMessage.style.fontSize = '16px';
-            installMessage.style.textAlign = 'center';
-            installMessage.style.cursor = 'pointer';
-            installMessage.style.zIndex = '1000';
-            installMessage.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
-            document.body.appendChild(installMessage);
         }
     </script>
 </body>
