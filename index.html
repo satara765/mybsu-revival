@@ -244,29 +244,44 @@
     };
         // goofy shit here: https://en.wikipedia.org/wiki/A_Goofy_Movie
     </script>
-
+    
     <script>
-        //For PWA
+        // For PWA: Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js').then((registration) => {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                }).catch((error) => {
-                    console.log('Service Worker registration failed:', error);
-                });
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registration failed:', error);
+                    });
             });
         }
-
+    
         let deferredPrompt;
-
+    
+        // Show the Install Banner when beforeinstallprompt is fired
         window.addEventListener('beforeinstallprompt', (event) => {
             event.preventDefault();
             deferredPrompt = event;
-
+    
             const installBanner = document.createElement('div');
             installBanner.textContent = 'Install myBSU Revival on your device!';
+            installBanner.style.position = 'fixed';
+            installBanner.style.bottom = '20px';
+            installBanner.style.left = '50%';
+            installBanner.style.transform = 'translateX(-50%)';
+            installBanner.style.backgroundColor = '#9E1B32';
+            installBanner.style.color = 'white';
+            installBanner.style.padding = '15px 30px';
+            installBanner.style.borderRadius = '5px';
+            installBanner.style.fontSize = '16px';
+            installBanner.style.textAlign = 'center';
+            installBanner.style.cursor = 'pointer';
+            installBanner.style.zIndex = '1000';
             document.body.appendChild(installBanner);
-
+    
             installBanner.addEventListener('click', () => {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
@@ -276,15 +291,27 @@
                         console.log('User dismissed the A2HS prompt');
                     }
                     deferredPrompt = null;
+                    installBanner.style.display = 'none'; // Hide the banner after the prompt
                 });
             });
         });
-
+    
+        // If the app is not installed as a PWA (standalone mode), show install message
         if (window.navigator.standalone === false) {
             const installMessage = document.createElement('div');
             installMessage.textContent = 'Install myBSU Revival on your device!';
+            installMessage.style.position = 'fixed';
+            installMessage.style.bottom = '20px';
+            installMessage.style.left = '50%';
+            installMessage.style.transform = 'translateX(-50%)';
             installMessage.style.backgroundColor = '#9E1B32';
             installMessage.style.color = 'white';
+            installMessage.style.padding = '15px 30px';
+            installMessage.style.borderRadius = '5px';
+            installMessage.style.fontSize = '16px';
+            installMessage.style.textAlign = 'center';
+            installMessage.style.cursor = 'pointer';
+            installMessage.style.zIndex = '1000';
             document.body.appendChild(installMessage);
         }
     </script>
