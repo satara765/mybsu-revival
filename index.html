@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
     <title>myBSU revival - Bringing Back The Old my.bsu.edu</title>
     <style>
         * {
@@ -242,6 +243,50 @@
         });
     };
         // goofy shit here: https://en.wikipedia.org/wiki/A_Goofy_Movie
+    </script>
+
+    <script>
+        //For PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch((error) => {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
+        }
+
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (event) => {
+            event.preventDefault();
+            deferredPrompt = event;
+
+            const installBanner = document.createElement('div');
+            installBanner.textContent = 'Install myBSU Revival on your device!';
+            document.body.appendChild(installBanner);
+
+            installBanner.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        if (window.navigator.standalone === false) {
+            const installMessage = document.createElement('div');
+            installMessage.textContent = 'Add myBSu revival to your homescreen with our new PWA!';
+            installMessage.style.backgroundColor = '#9E1B32';
+            installMessage.style.color = 'white';
+            document.body.appendChild(installMessage);
+        }
     </script>
 </body>
 </html>
