@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - myBSU Revival</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #9E1B32;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .message {
+            max-width: 600px;
+        }
+        .message h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .message p {
+            font-size: 1.5rem;
+        }
+        .message .highlight {
+            font-weight: bold;
+            color: #FFCC00;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>You are offline</h1>
+        <p>Reconnect to access <span class="highlight">myBSU Revival</span></p>
+    </div>
+
+    <script>
+        function checkConnectivity() {
+            if (navigator.onLine) {
+                fetch('/onlineCheck.jpg', { method: 'GET', cache: 'no-cache' })
+                    .then(response => {
+                        if (response.ok) {
+                            window.location.replace('/index.html');
+                        }
+                    })
+                    .catch(() => {
+                    });
+            }
+        }
+
+        setInterval(checkConnectivity, 1000);
+    </script>
+</body>
+</html>
