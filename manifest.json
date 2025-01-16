@@ -1,0 +1,23 @@
+{
+  "name": "myBSU revival",
+  "short_name": "myBSU revival",
+  "description": "A revival of the old myBSU page.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#9E1B32",
+  "theme_color": "#9E1B32",
+  "icons": [
+    {
+      "src": "icon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpg"
+    },
+    {
+      "src": "icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpg"
+    }
+  ],
+  "orientation": "portrait",
+  "scope": "/"
+}
