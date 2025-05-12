@@ -39,6 +39,7 @@ Got ideas? Want to help bring the old **my.bsu.edu** back to life?
 
 ### Notable Features
 - **PWA Compatibility (for iPhones) -** Get myBSU revival on your iPhone home screen! It works similarly to MyBallState--you tap a service, it opens, you tap "Done" to select another service to use--with the simplistic layout of myBSU revival and no login needed! Simply tap the banner at the top of the page for more information! *(You'll need to use Safari to do this)*
+- **Userscript -** With the myBSU revival userscript, when you go to `my.bsu.edu`, you'll be redirected to myBSU revival instead of MyBallState! *(You'll need the free [TamperMonkey browser extension](https://www.tampermonkey.net/) to use this)* 
 ---
 
 ### Project Credits
