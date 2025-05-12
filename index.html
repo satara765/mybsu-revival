@@ -227,6 +227,11 @@
             <h3><a href="https://github.com/satara765/mybsu-revival">View Our Source Code</a></h3>
             <p>No goofy shit here! We're 100% open-source, take a look!</p>
         </div>
+        <div class="service" id="us">
+            <h3><a href="https://cdn.jsdelivr.net/gh/satara765/mybsu-revival@latest/benny.user.js" target="_blank">Get Our Userscript</a></h3>
+            <p>This userscript automatically redirects you from <b>my.bsu.edu</b> to myBSU revival!</p>
+            <p>You need to install the <a href="https://www.tampermonkey.net/" target="_blank"><b>TamperMonkey</b> browser extension</a> for this to work! Once its installed, the userscript link should work!</p>
+        </div>
         <div class="service">
             <h3><a href="https://myballstate.bsu.edu">Switch to MyBallState</a></h3>
             <p>You're leaving myBSU revival to go to MyBallState :(</p>
@@ -235,6 +240,9 @@
     <footer>
         myBSU revival &copy; satara765. some rights reserved. not sponsored/endorsed by the uni.</small>
     </footer>
+    <script>
+      if (new URLSearchParams(location.search).has('us')) document.getElementById('us')?.style.setProperty('display', 'none');
+    </script>
     <script>
         window.onload = function() {
         document.querySelectorAll('a').forEach(link => {
